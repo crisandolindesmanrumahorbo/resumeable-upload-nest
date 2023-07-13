@@ -26,7 +26,7 @@ export class FileService {
 
   async handleInitiate(request: Request, response: Response) {
     const { roomCode, fileType } = this.getMetadata(request);
-    const dir = `/Users/20058748/Documents/personal/twilio/tus.io/nest-server/storage/${roomCode}/${fileType}/`;
+    const dir = `${process.cwd()}/storage/${roomCode}/${fileType}/`;
     if (!existsSync(dir)) {
       mkdirSync(dir, { recursive: true });
     }
